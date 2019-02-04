@@ -1,0 +1,40 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title bg-success text-white">
+        Buy ${ticker.pair}
+      </h4>
+      <div class="card-body">
+        <div class="weather-widget">
+          <div id="weather-one" class="weather-one">
+            <div class="top">
+              <div class="currently">${amount * price | currencySymbol:'usd'}</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label">Amount</label>
+          <input value.bind="amount" type="text" placeholder="Amount" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label class="form-control-label">Price</label>
+          <input value.bind="price" type="text" placeholder="Price" class="form-control" />
+        </div>
+        <div class="row form-group">
+          <div class="col-12">
+            <select class="form-control" value.bind="selectedOrderType">
+              <option repeat.for="orderType of orderTypes" value.bind="orderType">
+                ${orderType}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-lg btn-info btn-block" click.trigger="submitOrder()">
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

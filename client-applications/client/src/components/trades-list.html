@@ -1,0 +1,33 @@
+<template>
+  <require from="resources/value-converters/currency-symbol"></require>
+
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Recent Trades (vs USD)</strong>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Amount</th>
+              <th scope="col">Fee Amount</th>
+              <th scope="col">Price</th>
+              <th scope="col">Timestamp</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="trade of trades">
+              <td>${trade.amount | currencySymbol:'btc'}</td>
+              <td>${trade.fee_amount | currencySymbol:'usd'}</td>
+              <td>${trade.price | currencySymbol:'usd'}</td>
+              <td>${trade.timestampms | dateTimeFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}</td>
+              <td>${trade.type}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>

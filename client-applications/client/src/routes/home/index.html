@@ -1,0 +1,49 @@
+<template>
+  <require from="components/balance-list"></require>
+
+  <balance-list></balance-list>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <button class="btn btn-danger" click.trigger="cancelAllOrders()">Cancel all orders</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <strong class="card-title">Orders</strong>
+        </div>
+        <div class="table-stats order-table ov-h">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Pair</th>
+                <th>Amount</th>
+                <th>Executed</th>
+                <th>Remaining</th>
+                <th>Original</th>
+                <th>Is Live?</th>
+                <th>Is Cancelled?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr repeat.for="order of orders">
+                <td>${order.order_id}</td>
+                <td>${order.symbol}</td>
+                <td>${order.amount}</td>
+                <td>${order.executed_amount}</td>
+                <td>${order.remaining_amount}</td>
+                <td>${order.original_amount}</td>
+                <td>${order.is_live}</td>
+                <td>${order.is_cancelled}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,33 @@
+<template>
+  <div class="col-md-12">
+    <div class="card weather-box">
+      <h4 class="weather-title box-title">${ticker.pair} (Gemini)</h4>
+      <div class="card-body">
+        <div class="weather-widget">
+          <div id="weather-one" class="weather-one">
+            <div class="top">
+              <div class="currently">${ticker.last | currencySymbol:'usd'}</div>
+              <div class="updates">${ticker.volume.timestamp | dateTimeFormat:'MM/DD/YYYY @ HH:mm (Z)'}</div>
+            </div>
+            <h5 class="text-sm-center mt-2 mb-1">
+              <small>bid</small>
+              ${ticker.bid | currencySymbol:'usd'}
+            </h5>
+            <h5 class="text-sm-center mt-2 mb-1">
+              <small>ask</small>
+              ${ticker.ask | currencySymbol:'usd'}
+            </h5>
+            <h5 class="text-sm-center mt-2 mb-1">
+              <small>${ticker.pair.slice(0, 3).toUpperCase()}</small>
+              ${ticker.volume[ticker.pair.slice(0, 3).toUpperCase()] | currencySymbol:ticker.pair.slice(0, 3)}
+            </h5>
+            <h5 class="text-sm-center mt-2 mb-1">
+              <small>USD</small>
+              ${ticker.volume.USD | currencySymbol:'usd'}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

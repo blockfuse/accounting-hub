@@ -1,0 +1,36 @@
+<template>
+  <require from="resources/value-converters/currency-symbol"></require>
+  <require from="components/balance-breakdown"></require>
+  <require from="components/trades-list"></require>
+  <require from="components/ticker-info"></require>
+  <require from="components/buy-widget"></require>
+  <require from="components/sell-widget"></require>
+
+  <div class="row mb-4">
+    <div class="col">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>${balance.currency}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col-9">
+          <balance-breakdown balance.bind="balance"></balance-breakdown>
+          <trades-list trades.bind="trades"></trades-list>
+        </div>
+        <div class="col-3" if.bind="ticker">
+          <ticker-info ticker.bind="ticker" currency.bind="balance.currency"></ticker-info>
+          <buy-widget ticker.bind="ticker"></buy-widget>
+          <sell-widget ticker.bind="ticker"></sell-widget>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+    </div>
+  </div>
+</template>
